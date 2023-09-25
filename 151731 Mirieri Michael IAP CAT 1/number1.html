@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="number1.css">
+    <title>Food Selection</title>
+</head>
+<body>
+
+<div> Select Food:
+    <select id="foodgroup">
+        <option value="cookie">cookie</option>
+        <option value="pumpkin">pumpkin</option>
+        <option value="brocolli">broccoli</option>
+        <option value="butternut">butternut</option>
+        <option value="fish">fish</option>
+        <option value="crisps">crisps</option>
+    </select>
+    <button id="eat">Eat!</button>
+</div>
+<div class="foodImages">
+<p>
+    <img src="cookie.jpg" class="fats" alt="cookie" />
+    <img src="pumpkin.jpg" class="fruit" alt="pumpkin" />
+    <img src="brocolli.jpg" class="veggies" alt="broccoli" />
+    <img src="butternut.jpg" class="fruit " alt="butternut" />
+    <img src="fish.jpg" class="meat" alt="fish" />
+    <img src="crisps.jpg" class="fats" alt="crisps" />
+</p>
+</div>
+
+<script>
+    document.getElementById("eat").addEventListener("click", function () {
+        var selectedFood = document.getElementById("foodgroup").value;
+        alert("You are eating the " + selectedFood);
+
+        var images = document.querySelectorAll("img");
+        images.forEach(function (image) {
+            if (image.alt === selectedFood) {
+                image.remove();
+            }
+        });
+    });
+</script>
+
+</body>
+</html>

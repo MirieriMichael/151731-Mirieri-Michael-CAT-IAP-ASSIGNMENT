@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Information</title>
+</head>
+<body>
+
+    <script>
+        const books = [
+            {
+                title: "A Design Patterns: Elements of Reusable Object-Oriented Software",
+                img: "img/media/design_patterns.jpg",
+                genre: "Tech",
+                format: "Paperback",
+                year: 1994,
+                category: "Books",
+                authors: [
+                    "Erich Gamma",
+                    "Richard Helm",
+                    "Ralph Johnson",
+                    "John Vlissides"
+                ],
+                publisher: "Prentice Hall",
+                isbn: '978-0201633610'
+            },
+            {
+                title: "Clean Code: A Handbook of Agile Software Craftsmanship",
+                img: "img/media/clean_code.jpg",
+                genre: "Tech",
+                format: "Ebook",
+                year: 2008,
+                category: "Books",
+                authors: [
+                    "Robert C. Martin"
+                ],
+                publisher: 'Prentice Hall',
+                isbn: '978-0132350884'
+            }
+        ];
+
+        for (const bookIndex in books) {
+            const book = books[bookIndex];
+            let bookInfo = "";
+
+            for (const key in book) {
+                if (Array.isArray(book[key])) {
+                    const authors = book[key].join(", ");
+                    bookInfo += `<strong>${key}:</strong> ${authors}<br>`;
+                } else {
+                    bookInfo += `<strong>${key}:</strong> ${book[key]}<br>`;
+                }
+            }
+
+            document.body.innerHTML += bookInfo + "<br>";
+        }
+    </script>
+</body>
+</html>
